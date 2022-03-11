@@ -10,6 +10,7 @@ public interface ResearcherService {
 	public Flux<Researcher> findAll();
 	public Mono<Researcher> findById(String id);
 	
+	public Mono<Researcher> insert(Researcher researcher);
 	public Mono<Researcher> save(Researcher researcher);
 	
 	public Mono<Void> delete(String id);

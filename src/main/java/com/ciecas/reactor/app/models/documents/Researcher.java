@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +25,9 @@ public class Researcher {
 	private String email;
 	private String idGoogleScholar;
 	
+	@DateTimeFormat(pattern = "yyy-MM-DD")
 	private Date creationDate;
+	@DateTimeFormat(pattern = "yyy-MM-DD")
 	private Date lastUpdate;
 	
 	public Researcher(String name, String surname, String email) {

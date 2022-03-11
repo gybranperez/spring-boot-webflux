@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">Insert title here</title>
+</head>
+<body>
+
+	<h1 th:text="${title}"></h1>
+	
+	<a th:href="@{/}"> listado </a>
+	
+	<div>
+		<form th:action="@{/form}" method="post" th:object="${researcher}">
+		
+		<!-- <input th:if="${researcher.id != null}" type="hidden" th:field="*{id}"/>
+		<input th:if="${researcher.creationDate != null}" type="hidden" th:field="*{creationDate}"/>
+		<input th:if="${researcher.lastUpdate != null}" type="hidden" th:field="*{lastUpdate}"/> -->
+		
+			<div>
+				<label for="name">Nombre(s)</label>
+				<div><input type="text" id="name" th:field="*{name}"  /></div>
+			</div>
+			<div>
+				<label for="surname">Apellido(s)</label>
+				<div><input type="text" id="surname" th:field="*{surname}"/></div>
+			</div>
+			<div>
+				<label for="email">Email</label>
+				<div><input type="email" id="email" th:field="*{email}"/></div>
+			</div>
+			<div>
+				<label for="idGoogleScholar">idGoogleScholar</label>
+				<div><input type="text" id="idGoogleScholar" th:field="*{idGoogleScholar}"/></div>
+			</div>
+			
+			<div>
+				<div><input type="submit" value="Guardar"/></div>
+				<div><input type="reset" value="Limpiar"/></div>
+			</div>
+			
+		</form>
+	</div>
+
+</body>
+</html>

@@ -6,7 +6,11 @@
 </head>
 <body>
 
+	<h4 th:if="" th:text="${param.error}"></h4>
+
 	<h1 th:text="${title}"></h1>
+	
+	<a th:href="@{/form}"> crear + </a>
 	
 	<table>
 		<thead>
@@ -16,6 +20,7 @@
 				<th>email</th>
 				<th>GS</th>
 				<th>creado</th>
+				<th>Acciones</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -25,6 +30,9 @@
 				<td th:text="${r.email}"></td>
 				<td th:text="${r.idGoogleScholar}"></td>
 				<td th:text="${r.creationDate}"></td>
+				<td >
+					<a th:href="@{/form-v2/} + ${r.id}">Editar</a>
+				</td>
 			</tr>
 		</tbody>
 	</table>

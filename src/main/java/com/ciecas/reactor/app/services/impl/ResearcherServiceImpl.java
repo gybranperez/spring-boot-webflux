@@ -1,6 +1,7 @@
 package com.ciecas.reactor.app.services.impl;
 
 import java.util.Comparator;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,10 +27,22 @@ public class ResearcherServiceImpl implements ResearcherService{
 	@Override
 	public Mono<Researcher> findById(String id) {
 		return dao.findById(id);
+		/*
+		 Mono<Researcher> researcher = dao .findAll() .filter(r ->
+		 r.getId().equals(id)) .next() .doOnNext(r -> log.info(r.toString()));
+		 */
+	}
+	
+	@Override
+	public Mono<Researcher> insert(Researcher researcher) {
+		researcher.setCreationDate(new Date());
+		researcher.setLastUpdate(new Date());
+		return dao.insert(researcher);
 	}
 
 	@Override
 	public Mono<Researcher> save(Researcher researcher) {
+		researcher.setLastUpdate(new Date());
 		return dao.save(researcher);
 	}
 
